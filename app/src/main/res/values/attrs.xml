@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="ShadowLayout">
+        <!-- 1、关于阴影 -->
+        <!--阴影：是否要显示阴影，可能有只想用shape和selector功能，不想要阴影-->
+        <attr name="hl_shadowHidden" format="boolean" />
+        <!--阴影：阴影颜色-->
+        <attr name="hl_shadowColor" format="color" />
+        <!--阴影：阴影的扩散范围(也可以理解为扩散程度)-->
+        <attr name="hl_shadowLimit" format="dimension" />
+        <!--控件区域是否对称，默认是对称。不对称的话，那么控件区域随着阴影区域走-->
+        <attr name="hl_shadowSymmetry" format="boolean" />
+        <!--阴影：x轴的偏移量-->
+        <attr name="hl_shadowOffsetX" format="dimension" />
+        <!--阴影：y轴的偏移量-->
+        <attr name="hl_shadowOffsetY" format="dimension" />
+        <!--阴影：左边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenLeft" format="boolean" />
+        <!--阴影：右边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenRight" format="boolean" />
+        <!--阴影：上边是否隐藏阴影-->
+        <attr name="hl_shadowHiddenTop" format="boolean" />
+        <!--阴影：下面是否隐藏阴影-->
+        <attr name="hl_shadowHiddenBottom" format="boolean" />
+
+
+        <!-- 2、关于圆角 -->
+        <!--圆角：统一大小，其中包括了阴影，shape、背景图、stroke边框圆角-->
+        <attr name="hl_cornerRadius" format="dimension" />
+        <!--圆角：左上圆角。设置后会忽略hl_cornerRadius的值-->
+        <attr name="hl_cornerRadius_leftTop" format="dimension" />
+        <!--圆角：右上圆角。同上-->
+        <attr name="hl_cornerRadius_rightTop" format="dimension" />
+        <!--圆角：左下圆角。同上-->
+        <attr name="hl_cornerRadius_leftBottom" format="dimension" />
+        <!--圆角：右下圆角。同上-->
+        <attr name="hl_cornerRadius_rightBottom" format="dimension" />
+
+
+        <!-- 3、关于shape及selector -->
+        <!-- shape及selector样式：pressed、sectored -->
+        <!-- <<新增line模式>>，也就是线模式。可搭配hl_strokeColor，hl_stroke_dashWidth，hl_stroke_dashGap实现虚线 -->
+        <attr name="hl_shapeMode">
+            <enum name="pressed" value="1" />
+            <enum name="selected" value="2" />
+            <enum name="ripple" value="3" />
+            <enum name="dashLine" value="4" />
+        </attr>
+
+        <!-- 为false的默认背景，可单独使用-->
+        <attr name="hl_layoutBackground" format="reference|color" />
+        <!-- 为true的默认背景，必须搭配hl_layoutBackground属性使用。否则报错-->
+        <attr name="hl_layoutBackground_true" format="reference|color" />
+
+        <!-- stroke样式，stroke的宽度-->
+        <attr name="hl_strokeWith" format="dimension" />
+        <!-- 为false时，默认的stoke颜色值，可单独使用-->
+        <attr name="hl_strokeColor" format="color" />
+        <!-- 为true时，默认的stoke颜色值，必须搭配hl_strokeColor属性使用。否则报错-->
+        <attr name="hl_strokeColor_true" format="color" />
+        <!-- 虚线边框的实线部分长度 -->
+        <attr name="hl_stroke_dashWidth" format="dimension" />
+        <!-- 虚线边框的间隔宽度-->
+        <attr name="hl_stroke_dashGap" format="dimension" />
+
+
+
+        <!-- 这里最终舍弃了系统clickable的方案，因为系统系统主动设置setOnClickListener后，会主动设置成true,所以这里采用自定义 -->
+        <attr name="clickable" format="boolean" />
+        <!-- hl_clickable为false时，要展示的图片或颜色-->
+        <attr name="hl_layoutBackground_clickFalse" format="reference|color" />
+
+
+        <!-- 4、关于填充的渐变色 -->
+        <!-- 要知道，如果设置了渐变色。那么将以渐变色为主。hl_layoutBackground属性将无效 -->
+        <!-- 渐变的起始颜色 -->
+        <attr name="hl_startColor" format="color" />
+        <!-- 渐变的中间颜色 -->
+        <attr name="hl_centerColor" format="color" />
+        <!-- 渐变的终止颜色 -->
+        <attr name="hl_endColor" format="color" />
+        <!-- 渐变角度，默认值为0-->
+        <attr name="hl_angle" format="integer" />
+
+
+        <!-- 5、绑定一个TextView，在点击按钮时，有可能有颜色变化 -->
+        <attr name="hl_bindTextView" format="reference" />
+        <attr name="hl_textColor" format="color" />
+        <attr name="hl_textColor_true" format="color" />
+        <attr name="hl_text" format="string" />
+        <attr name="hl_text_true" format="string" />
+
+
+    </declare-styleable>
+
+
+    <!-- ***************************************** SmartLoadingView ******************************************* -->
+    <declare-styleable name="SmartLoadingView">
+
+        <!-- 文案内容 -->
+        <!-- android:text="文案"-->
+
+        <!--  动画结束文案，注意！不设置则为android:text=""文案 -->
+        <attr name="hl_animaled_text" format="string" />
+
+        <!-- 文案颜色-->
+        <!-- android:textColor="#ff0000"-->
+
+        <!-- 动画结束文字颜色，注意！不设置则为 textColor的颜色值 -->
+        <attr name="hl_animaled_textColor" format="color" />
+
+        <!-- 文案字体大小 -->
+        <!-- android:textSize="18sp"-->
+
+        <!-- 背景色（只支持颜色,不设置或者设置错误会走蓝色底） -->
+        <!-- android:background="#ff00ff" -->
+
+        <!-- 动画结束背景色，注意！不设置则为 background的颜色值 -->
+        <attr name="hl_animaled_background" format="color" />
+
+        <!-- 圆角属性 -->
+        <attr name="hl_corners_radius" format="dimension" />
+
+        <!-- 是否可被点击 -->
+        <!-- android:enabled="true"-->
+
+        <!-- 不可点击状态下背景色 -->
+        <attr name="hl_unEnabled_background" format="color" />
+
+        <!-- 文字滚动模式 -->
+        <attr name="hl_ellipsize">
+            <enum name="reverse" value="1" />
+            <enum name="marquee" value="2" />
+        </attr>
+
+        <!-- 文字滚动速度，只有文字滚动时生效。这里是每个文字滚动出屏幕外所需的时间 -->
+        <attr name="hl_ellipsize_speed" format="integer" />
+
+        <attr name="hl_button_type">
+            <!-- 关注模式之一：打勾样式 -->
+            <enum name="smart_tick" value="1" />
+            <!-- 关注模式之一：打勾样式 -> 隐藏 -->
+            <enum name="smart_tick_hide" value="2" />
+            <!-- 关注模式之一：打勾样式 -> 移动到中间 -> 隐藏 -->
+            <enum name="smart_tick_center_hide" value="3" />
+            <!-- 关注模式之一：按钮样式 -->
+            <enum name="smart_button" value="4" />
+            <!-- 不支持关注：全屏扩散特效 -->
+            <enum name="smart_full_screen" value="5" />
+
+        </attr>
+
+    </declare-styleable>
+
+</resources>
